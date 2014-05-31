@@ -10,6 +10,17 @@ namespace StudentClassHW
     {
         static void Main(string[] args)
         {
+            List<Student> stList = new List<Student> {
+                new Student("Dino", "Praso", "email3568@auvih.edu.ba"),
+                new Student("Stefan", "Vujovic", "email1486@auvih.edu.ba"),
+                new Student("Adnan", "Rahic", "email2149@auvih.edu.ba"),
+            };
+
+            stList.Sort();
+            stList.ForEach(student => Console.WriteLine(student.email));
+
+            Console.WriteLine("Press Enter to Exit...");
+            Console.ReadLine();
         }
     }
 
@@ -29,18 +40,19 @@ namespace StudentClassHW
         }
     }
     
-    class Student : Person, IComparable
+    class Student : Person, IComparable<Student>
     {
         public string email {get; set;}
+        private string Location;
         private string location
         {
             get
             {
-                if (location == "SA")
+                if (Location == "SA")
                 {
                     return "Sarajevo";
                 }
-                else if (location == "TZ")
+                else if (Location == "TZ")
                 {
                     return "Tuzla";
                 }
@@ -53,15 +65,15 @@ namespace StudentClassHW
             {
                 if (value == "SA" || value == "SARAJEVO" || value == "Sarajevo")
                 {
-                    location = "Sarajevo";
+                    Location = "Sarajevo";
                 }
                 else if (value == "TZ" || value == "TUZLA" || value == "Tuzla")
                 {
-                    location = "Tuzla";
+                    Location = "Tuzla";
                 }
                 else
                 {
-                    location = "NA";
+                    Location = "NA";
                 }
             }
         }
@@ -69,7 +81,7 @@ namespace StudentClassHW
         public Student() : base("Dino", "Prašo")
         {
             this.email = "email@aubih.edu.ba";
-            this.location = "Sarajevo";
+            this.Location = "Sarajevo";
         }
 
         ~Student() {
@@ -80,7 +92,7 @@ namespace StudentClassHW
             : base(name, lastname)
         {
             this.email = email;
-            this.location = "Sarajevo";
+            this.Location = "Sarajevo";
         }
 
         public bool setName(string input)
@@ -110,7 +122,7 @@ namespace StudentClassHW
         
         public string getStudentInfo()
         {
-            return base.getPersonInfo() + ", " + this.email + ", " + this.location;
+            return base.getPersonInfo() + ", " + this.email + ", " + this.Location;
         }
 
         public override string ToString()
@@ -120,7 +132,7 @@ namespace StudentClassHW
 
         public int CompareTo(Student student)
         {
-            return location.CompareTo(student.location);
+            return email.CompareTo(student.email);
         }
     }
 }
