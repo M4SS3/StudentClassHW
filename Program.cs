@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,9 +11,9 @@ namespace StudentClassHW
         static void Main(string[] args)
         {
             List<Student> stList = new List<Student> {
-                new Student("Dino", "Praso", "email3568@auvih.edu.ba"),
-                new Student("Stefan", "Vujovic", "email1486@auvih.edu.ba"),
-                new Student("Adnan", "Rahic", "email2149@auvih.edu.ba"),
+                new Student("Semir", "Masic", "srmc1636@aubih.edu.ba"),
+                new Student("Kemal", "Secic", "klsc1529@aubih.edu.ba"),
+                new Student("Mirza", "Pecanac", "mapc1508@aubih.edu.ba"),
             };
 
             stList.Sort();
@@ -78,9 +78,9 @@ namespace StudentClassHW
             }
         }
 
-        public Student() : base("Dino", "Prašo")
+        public Student() : base("Semir", "Masic")
         {
-            this.email = "email@aubih.edu.ba";
+            this.email = "srmc1636@aubih.edu.ba";
             this.Location = "Sarajevo";
         }
 
@@ -97,7 +97,7 @@ namespace StudentClassHW
 
         public bool setName(string input)
         {
-            if (input.Length <= 2)
+            if (input.Length < 2)
             {
                 Console.WriteLine("Name must be at least two characters long");
                 return false;
@@ -136,3 +136,4 @@ namespace StudentClassHW
         }
     }
 }
+
